@@ -1,0 +1,531 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Choice Travels design tokens
+
+   RULE: every colour lives here as a CSS custom property. Components use the
+   Tailwind classes generated from these tokens (bg-ink, text-text-muted,
+   border-accent...) and never a hex value. The Tailwind colour name always
+   matches the CSS variable name: --sand-deep -> bg-sand-deep.
+   ========================================================================== */
+
+/* Inside @layer base so that Tailwind utility classes (which live in a later
+   layer) can still override these, e.g. a text-sm class on a [data-mode] element. */
+@layer base {
+  :root {
+    /* Brand palette */
+    --ink: #0b3b2e; /* nav, footer, image overlays, dark sections */
+    --ink-deep: #06241c; /* hover states on dark surfaces */
+    --gold: #c9a227; /* devotional + homepage accent */
+    --terracotta: #c85a3c; /* leisure accent */
+    --sand: #f7f3ea; /* page background for light sections */
+    --sand-deep: #ede6d6; /* card surfaces and dividers on sand */
+    --text: #1a1a18; /* body text on light surfaces */
+    --text-muted: #5c5a52; /* captions, labels, metadata */
+
+    /* A darker terracotta for surfaces that carry text (button fills).
+       Plain terracotta with light text is only 4.2:1, below the 4.5:1
+       WCAG AA minimum. This shade gives 4.9:1 with sand text. */
+    --terracotta-deep: #ab4d33;
+
+    /* --- Mode tokens -------------------------------------------------------
+       Components read these, never --gold or --terracotta directly.
+       The defaults below are for mode-neutral pages (homepage, fleet, about,
+       contact), which use gold because the homepage opens on a temple.
+       [data-mode] blocks further down override them. */
+
+    /* Rules, borders, icons, active states */
+    --accent: var(--gold);
+    /* Backgrounds that have text on them, e.g. primary buttons */
+    --accent-fill: var(--gold);
+    /* Text colour on top of --accent-fill */
+    --on-accent: var(--ink);
+
+    /* Multiplies the whole type scale. 1 = 16px base, 1.125 = 18px base. */
+    --type-scale: 1;
+
+    /* Minimum height/width of anything tappable */
+    --tap-min: 44px;
+
+    /* Focus outline colour. Dark sections switch it to sand (see .surface-dark). */
+    --focus-ring: var(--ink);
+
+    /* Very faint warm wash laid over every photo (see .photo-grade) */
+    --photo-warmth: color-mix(in srgb, var(--gold) 6%, transparent);
+  }
+
+  /* --------------------------------------------------------------------------
+     Modes. The route layout for /devotional and /tours sets data-mode on its
+     root element. One attribute flips the accent and the type size for that
+     whole subtree.
+     -------------------------------------------------------------------------- */
+
+  /* data-accent borrows just the accent colours without the type and tap
+     changes. The homepage Two Doors panels use it: one gold, one terracotta. */
+  [data-mode="devotional"],
+  [data-accent="devotional"] {
+    --accent: var(--gold);
+    --accent-fill: var(--gold);
+    --on-accent: var(--ink);
+  }
+
+  [data-mode="leisure"],
+  [data-accent="leisure"] {
+    --accent: var(--terracotta);
+    --accent-fill: var(--terracotta-deep);
+    --on-accent: var(--sand);
+  }
+
+  [data-mode="devotional"] {
+    /* Base font goes from 16px to 18px for older readers. We can't change rem
+       inside a subtree (rem always comes from <html>), so instead every step of
+       the type scale is multiplied by --type-scale. 16px × 1.125 = 18px. */
+    --type-scale: 1.125;
+    font-size: 1.125rem;
+
+    /* Bigger tap targets for less precise taps */
+    --tap-min: 48px;
+  }
+
+  [data-mode="leisure"] {
+    --type-scale: 1;
+    font-size: 1rem;
+  }
+}
+
+/* ==========================================================================
+   Tailwind theme
+
+   `@theme` replaces Tailwind's defaults. We clear the default colours, font
+   sizes, radii and shadows so only the brand values exist. Anyone reaching for
+   bg-blue-500 or text-5xl gets no class, which keeps the site on-brand.
+   ========================================================================== */
+
+@theme {
+  --color-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --drop-shadow-*: initial;
+
+  /* 8px spacing scale: p-1 = 8px, p-2 = 16px, p-3 = 24px, p-6 = 48px...
+     NOTE: Tailwind's default is 4px, so code copied from the Tailwind docs
+     will come out twice as large. Halve the number when copying. */
+  --spacing: 0.5rem;
+
+  /* Corners: small and consistent. Full-bleed media uses rounded-none. */
+  --radius-control: 4px; /* buttons and inputs */
+  --radius-card: 8px; /* cards */
+}
+
+/* `inline` makes Tailwind write var(--ink) straight into each class instead of
+   copying the value at :root. That is what lets --accent and --type-scale
+   change inside a [data-mode] subtree. */
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-deep: var(--ink-deep);
+  --color-gold: var(--gold);
+  --color-terracotta: var(--terracotta);
+  --color-sand: var(--sand);
+  --color-sand-deep: var(--sand-deep);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-fill: var(--accent-fill);
+  --color-on-accent: var(--on-accent);
+
+  /* Fonts come from next/font in app/layout.tsx */
+  --font-heading: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+
+  /* Type scale, mobile first. Seven steps only:
+     0.875 / 1 / 1.125 / 1.5 / 2 / 3 / 4.5 rem (at the 16px base). */
+  --text-sm: calc(0.875rem * var(--type-scale)); /* captions, labels */
+  --text-sm--line-height: 1.5;
+  --text-base: calc(1rem * var(--type-scale)); /* body copy */
+  --text-base--line-height: 1.65;
+  --text-lg: calc(1.125rem * var(--type-scale)); /* lead paragraphs */
+  --text-lg--line-height: 1.6;
+  --text-xl: calc(1.5rem * var(--type-scale)); /* card and small headings */
+  --text-xl--line-height: 1.3;
+  --text-2xl: calc(2rem * var(--type-scale)); /* section headings, mobile */
+  --text-2xl--line-height: 1.2;
+  --text-3xl: calc(3rem * var(--type-scale)); /* section headings, desktop */
+  --text-3xl--line-height: 1.1;
+  --text-4xl: calc(4.5rem * var(--type-scale)); /* display numerals */
+  --text-4xl--line-height: 1;
+
+  /* Homepage hero headline. Top of the scale (4.5rem) on very wide screens,
+     shrinking smoothly to 2.25rem on small phones. On desktop the headline
+     sits in half the screen width, so it grows more slowly than the screen.
+     Not multiplied by --type-scale because the homepage is mode-neutral. */
+  --text-hero: clamp(2.25rem, 1.25rem + 3.2vw, 4.5rem);
+  --text-hero--line-height: 1.05;
+}
+
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+
+@layer base {
+  html {
+    /* Stops iOS bumping font sizes up in landscape */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--sand);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings: Fraunces at weight 400. Use font-semibold (600) for emphasis.
+     No other heading weights are loaded. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    text-wrap: balance;
+  }
+
+  /* Visible focus ring on every interactive element, keyboard users only */
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+}
+
+/* ==========================================================================
+   Shared utilities. Each one is used in many components, so it lives here
+   once rather than as a long class string copied everywhere.
+   ========================================================================== */
+
+/* Page content column: max 1440px wide, with 1.5rem gutters either side. */
+@utility content-width {
+  width: min(100% - 3rem, 90rem);
+  margin-inline: auto;
+}
+
+/* Vertical section padding: 3.5rem on mobile, 6rem on desktop. */
+@utility section-pad {
+  padding-block: 3.5rem;
+
+  @media (width >= 64rem) {
+    padding-block: 6rem;
+  }
+}
+
+/* Dark section: ink background, sand text, and a sand focus ring so the
+   ring stays visible against the dark background. */
+@utility surface-dark {
+  background-color: var(--ink);
+  color: var(--sand);
+  --focus-ring: var(--sand);
+}
+
+/* Minimum tap target. 44px normally, 48px in devotional mode. */
+@utility tap-target {
+  min-height: var(--tap-min);
+  min-width: var(--tap-min);
+}
+
+/* ==========================================================================
+   Component styles that are clearer as plain CSS than as long class lists.
+   ========================================================================== */
+
+@layer components {
+  /* --- Shared photo grade -------------------------------------------------
+     Photos come from several sources and cameras. One shared grade (a touch
+     more saturation and contrast, plus a very faint warm wash) makes them
+     read as one brand. Every photo is wrapped in .photo-grade by Photo.tsx. */
+  .photo-grade {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .photo-grade img {
+    filter: saturate(1.05) contrast(1.03);
+  }
+
+  .photo-grade::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--photo-warmth);
+    pointer-events: none;
+  }
+
+  /* --- Homepage hero: slow Ken Burns zoom ----------------------------------
+     A gentle 25 second zoom from 1 to 1.1. It runs once and holds, so the
+     phone is not animating forever. transform only, so it stays on the GPU.
+     The zoom is centred just right of the gopuram, so on desktop the temple
+     drifts slightly left, away from the text, as it grows. */
+  .hero-ken-burns {
+    transform-origin: 60% 45%;
+    animation: ken-burns 25s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    will-change: transform;
+  }
+
+  /* --- Homepage Two Doors ---------------------------------------------------
+     Stacked 60vh blocks on mobile. Side by side, full height on desktop. */
+  .two-doors {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .door {
+    position: relative;
+    height: 60vh;
+    min-height: 26rem;
+    overflow: hidden;
+  }
+
+  /* Holds the photo. Fills the panel on mobile; see the desktop rule below. */
+  .door-media {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* The dimming layer for the panel you are NOT hovering. We fade an overlay
+     instead of animating filter: brightness, because opacity is cheap. */
+  .door-dim {
+    opacity: 0;
+  }
+
+  @media (width >= 64rem) {
+    .two-doors {
+      flex-direction: row;
+      height: 100vh;
+      min-height: 40rem;
+    }
+
+    .door {
+      flex: 0 0 50%;
+      height: auto;
+    }
+
+    /* The photo is always 62vw wide (the panel's largest size) and centred.
+       When the panel widens, it only shows more of the photo; the photo itself
+       never resizes, so the browser does not re-draw it on every frame. */
+    .door-media {
+      inset-inline: auto;
+      left: 50%;
+      width: 62vw;
+      translate: -50% 0;
+    }
+  }
+
+  /* The hover effect only exists where hovering is possible: a wide screen
+     with a mouse or trackpad. flex-basis is a layout property, which we
+     normally never animate; this is the one deliberate exception, and it is
+     kept off phones and tablets, where there is no hover to justify the cost.
+     (With "reduce motion" on, it still works, just faster: see the end of
+     this file.) */
+  @media (width >= 64rem) and (hover: hover) {
+    .door {
+      transition: flex-basis 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .door-image {
+      transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .door-dim {
+      transition: opacity 700ms ease;
+    }
+
+    .two-doors:hover .door,
+    .two-doors:focus-within .door {
+      flex-basis: 38%;
+    }
+
+    .two-doors .door:hover,
+    .two-doors .door:focus-within {
+      flex-basis: 62%;
+    }
+
+    .door:hover .door-image,
+    .door:focus-within .door-image {
+      transform: scale(1.05);
+    }
+
+    .two-doors:hover .door:not(:hover) .door-dim,
+    .two-doors:focus-within .door:not(:focus-within) .door-dim {
+      opacity: 0.35;
+    }
+  }
+
+  /* --- Drivers section: animated road scene (DriverScene.tsx) --------------
+     Every moving layer animates transform or opacity only, so the GPU does
+     the work. Nothing moves until the scene is on screen (data-playing). */
+  .driver-scene .scene-palms {
+    animation: scene-scroll 26s linear infinite;
+    will-change: transform;
+  }
+
+  .driver-scene .scene-road-line {
+    animation: scene-scroll 1.8s linear infinite;
+    will-change: transform;
+  }
+
+  .driver-scene .scene-car {
+    animation: scene-bob 0.9s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  .driver-scene .scene-sun-glow {
+    animation: scene-glow 4s ease-in-out infinite alternate;
+  }
+
+  .driver-scene .scene-chip {
+    animation: scene-float 5s ease-in-out infinite alternate;
+  }
+
+  .driver-scene .scene-chip:nth-child(2) {
+    animation-delay: -1.7s;
+  }
+
+  .driver-scene .scene-chip:nth-child(3) {
+    animation-delay: -3.4s;
+  }
+
+  .driver-scene:not([data-playing="true"]) * {
+    animation-play-state: paused;
+  }
+
+  /* --- Kathakali band: fixed background on desktop only --------------------
+     background-attachment: fixed forces the browser to repaint the whole
+     background on every scroll frame on iOS Safari and most Android browsers,
+     which is exactly the kind of scroll jank this site must avoid. So:
+     - under 1024px, or with reduced motion: show a normal lazy-loaded photo
+     - 1024px and up: hide that photo and show the fixed CSS background */
+  .band-fixed-bg {
+    display: none;
+  }
+
+  @media (width >= 64rem) and (prefers-reduced-motion: no-preference) {
+    .band-fixed-bg {
+      display: block;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .band-scroll-photo {
+      display: none;
+    }
+  }
+
+  /* --- Devotional pages: room for the pinned call bar ----------------------
+     The call bar is fixed to the bottom of the screen on mobile, so the
+     footer that follows a devotional page needs extra space at its end, or
+     its last lines would hide behind the bar. (`~` means "a later sibling":
+     the footer comes after the [data-mode] wrapper in app/layout.tsx.) */
+  @media (width < 64rem) {
+    [data-mode="devotional"] ~ footer {
+      padding-bottom: calc(var(--tap-min) + 2rem + env(safe-area-inset-bottom));
+    }
+  }
+}
+
+@keyframes scene-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scene-bob {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-3%);
+  }
+}
+
+@keyframes scene-glow {
+  from {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+  to {
+    transform: scale(1.12);
+    opacity: 0.1;
+  }
+}
+
+@keyframes scene-float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* Hide the scrollbar but keep native scrolling (destination rail). */
+@utility no-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Reduced motion. Many phones and laptops switch this on quietly (battery
+   saver, Windows "Animation effects" off), so we do not freeze the whole
+   site. Instead:
+   - big, full-screen motion stops: the hero zoom (here) and the Kathakali
+     fixed background (see .band-fixed-bg)
+   - scroll reveals become plain fades (see Reveal.tsx)
+   - the small driver scene keeps going, slower and calmer
+   - the Two Doors hover still works, just quicker
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ken-burns {
+    animation: none;
+  }
+
+  .driver-scene .scene-palms {
+    animation-duration: 52s;
+  }
+
+  .driver-scene .scene-road-line {
+    animation-duration: 3.6s;
+  }
+
+  .driver-scene .scene-car {
+    animation-duration: 1.6s;
+  }
+
+  .driver-scene .scene-chip {
+    animation-duration: 9s;
+  }
+
+  .door,
+  .door-image,
+  .door-dim {
+    transition-duration: 300ms;
+  }
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Favicon: the logo mark in gold on ink. Colours match --gold and --ink in globals.css. -->
+  <rect width="32" height="32" rx="6" fill="#0b3b2e"/>
+  <path d="M24.5 10.5A10 10 0 1 0 24.5 21.5" fill="none" stroke="#c9a227" stroke-width="2.75" stroke-linecap="round"/>
+  <circle cx="16" cy="16" r="3.5" fill="#c9a227"/>
+</svg>
