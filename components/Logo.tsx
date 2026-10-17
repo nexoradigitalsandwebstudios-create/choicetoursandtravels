@@ -1,23 +1,18 @@
 import Link from "next/link";
+import LogoEmblem from "./LogoEmblem";
 import { site } from "@/content/site";
 
-// The Choice Travels wordmark: a small open circle with a sun at its centre
-// (a "C", and a nod to temple lamps and sunrise at Kanyakumari) next to the
-// name set in Fraunces. The mark uses the current accent colour.
+// The Choice Tours & Travels logo for the header and footer (both dark):
+// the emblem beside the name, set like the full logo in public/logo/,
+// "Choice Tours" in Fraunces with "& Travels" in letter-spaced gold below.
 export default function Logo({ onClick }: { onClick?: () => void }) {
   return (
     <Link href="/" onClick={onClick} className="tap-target flex items-center gap-1.5" aria-label={`${site.name}, home`}>
-      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" className="h-4 w-4 shrink-0 text-accent">
-        <path
-          d="M26.5 9.5A12.5 12.5 0 1 0 26.5 22.5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-        <circle cx="16" cy="16" r="4" fill="currentColor" />
-      </svg>
-      <span className="font-heading text-lg leading-none font-semibold whitespace-nowrap sm:text-xl">{site.name}</span>
+      <LogoEmblem className="h-5 w-5 shrink-0 lg:h-6 lg:w-6" />
+      <span className="flex flex-col leading-none whitespace-nowrap">
+        <span className="font-heading text-lg font-semibold tracking-[0.04em] uppercase sm:text-xl">Choice Tours</span>
+        <span className="mt-0.5 text-sm font-semibold tracking-[0.3em] text-gold uppercase">&amp; Travels</span>
+      </span>
     </Link>
   );
 }

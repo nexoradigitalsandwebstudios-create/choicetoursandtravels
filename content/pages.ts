@@ -52,7 +52,7 @@ export const toursPage = {
 
 export const aboutPage = {
   metaTitle: "About us",
-  metaDescription: `Choice Travels has driven travellers across South India from ${site.city} since ${site.foundedYear}. Meet our drivers and see where we go.`,
+  metaDescription: `${site.name} has driven travellers across South India from ${site.city} since ${site.foundedYear}. Meet our drivers and see where we go.`,
   hero: {
     image: images.pageAbout,
     eyebrow: "About us",
@@ -63,7 +63,7 @@ export const aboutPage = {
   // TODO: client to supply the founding story: who started the business, why,
   // and how it has grown. The paragraphs below use only confirmed facts.
   story: [
-    `Choice Travels began in ${site.city} in ${site.foundedYear} as a tour and car-rental operator, offering cars with experienced drivers to pilgrims, families and holidaymakers.`,
+    `${site.name} began in ${site.city} in ${site.foundedYear} as a tour and car-rental operator, offering cars with experienced drivers to pilgrims, families and holidaymakers.`,
     `Today we cover all of South India from our Kerala base: ${statesServed.join(", ")}. Whatever the size of your group, we have a vehicle available year-round.`,
     // TODO: add a paragraph from the client about the founder and what makes
     // the business personal.
@@ -77,7 +77,7 @@ export const aboutPage = {
 
 export const contactPage = {
   metaTitle: "Contact us",
-  metaDescription: `Call or WhatsApp Choice Travels in ${site.city}, open 24 hours, for taxis, tours and temple trips across South India.`,
+  metaDescription: `Call or WhatsApp ${site.name} in ${site.city}, open 24 hours, for taxis, tours and temple trips across South India.`,
   eyebrow: "Contact",
   heading: "Let's plan your journey",
   intro: "Call or WhatsApp us any time. We are open 24 hours, every day.",

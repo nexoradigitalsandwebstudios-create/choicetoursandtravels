@@ -1,6 +1,6 @@
-# Choice Travels website
+# Choice Tours & Travels website
 
-Marketing site for Choice Travels, Thiruvananthapuram: car hire with experienced drivers, tours and temple trips across South India since 2005. It generates leads only: every path ends in a phone call or a WhatsApp message, with a Google map to the office. There are no bookings, payments or accounts.
+Marketing site for Choice Tours & Travels, Thiruvananthapuram: car hire with experienced drivers, tours and temple trips across South India since 2005. It generates leads only: every path ends in a phone call or a WhatsApp message, with a Google map to the office. There are no bookings, payments or accounts.
 
 Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4 and Framer Motion (scroll reveals only).
 
@@ -43,6 +43,18 @@ Search the project for `TODO` to find what is still needed from the client.
 Every `npm run dev` and `npm run build` regenerates the blur placeholders (`content/blur-data.json`, via plaiceholder). The build **fails** if a photo is missing, over its size limit, or its size does not match `images.ts`.
 
 Only use photos licensed for commercial use (Wikimedia Commons, Unsplash, Pexels, Pixabay, Kerala Tourism), never Google Images, and record the credit.
+
+## Logo
+
+The logo files live in `public/logo/`:
+
+| File | Use |
+| --- | --- |
+| `choice-tours-travels-logo.svg` / `.png` | Full logo on ivory: print, social media, letterheads |
+| `choice-tours-travels-logo-transparent.svg` | Full logo without a background |
+| `choice-tours-travels-emblem.svg` | The round emblem on its own |
+
+On the site, `components/LogoEmblem.tsx` draws the same emblem, `app/icon.svg` is the browser-tab icon and `app/apple-icon.png` is the phone home-screen icon. Brand colours: gold `#C9A227`, forest green `#0B3B2E`, ivory `#F7F3EA`. Flat colour only, no gradients.
 
 ## The two modes
 

@@ -41,8 +41,8 @@ export const images = {
     // licence; if it is not the client's own photo, add the credit here.
     focus: "45% 50%",
     credit: {
-      author: "Choice Travels",
-      source: "Supplied by Choice Travels",
+      author: "Choice Tours & Travels",
+      source: "Supplied by Choice Tours & Travels",
       sourceUrl: "",
       license: "Used with permission",
       licenseUrl: "",
@@ -88,8 +88,8 @@ export const images = {
     // TODO: confirm permission to use it, or replace with a photo of the
     // client's own Urbania. Upscaled 2x from a 502px original.
     credit: {
-      author: "Choice Travels",
-      source: "Supplied by Choice Travels",
+      author: "Choice Tours & Travels",
+      source: "Supplied by Choice Tours & Travels",
       sourceUrl: "",
       license: "Used with permission",
       licenseUrl: "",

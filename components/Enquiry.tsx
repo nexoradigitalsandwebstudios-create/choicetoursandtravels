@@ -16,7 +16,7 @@ import { enquiryIntro } from "@/content/home";
 export default function Enquiry() {
   return (
     <section id="enquiry" aria-labelledby="enquiry-heading" className="surface-dark section-pad">
-      <div className="content-width grid gap-8 lg:grid-cols-12 lg:gap-12">
+      <div className="content-width grid gap-8 lg:grid-cols-12 lg:gap-x-6">
         <Reveal className="lg:col-span-6">
           <SectionHeading
             id="enquiry-heading"

@@ -60,7 +60,7 @@ export default async function DestinationPage({ params }: PageProps<"/tours/[slu
       />
 
       <section aria-labelledby="destination-overview" className="section-pad bg-sand">
-        <div className="content-width grid gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="content-width grid gap-8 lg:grid-cols-12 lg:gap-x-6">
           <Reveal className="lg:col-span-7">
             <SectionHeading id="destination-overview" title={`About ${destination.name}`} />
             <p className="mt-3 text-lg">{destination.intro}</p>

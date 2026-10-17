@@ -48,7 +48,7 @@ export default function MobileMenu({ open, onClose, pathname }: MobileMenuProps)
       id="mobile-menu"
       // Sits below the header bar, so the header's menu button closes it.
       // `invisible` when closed so the links cannot be reached with Tab.
-      className={`fixed inset-x-0 top-8 bottom-0 z-40 overflow-y-auto bg-ink transition-[opacity,transform] duration-300 lg:hidden ${
+      className={`fixed inset-x-0 top-8 bottom-0 z-40 overflow-y-auto bg-ink transition-[opacity,transform] duration-300 xl:hidden ${
         open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"
       }`}
     >

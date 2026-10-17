@@ -18,7 +18,7 @@ export default function ContactPage() {
       {/* Starts dark like every page, so the transparent header is readable.
           The phone is the main action, so it is the biggest thing here. */}
       <section aria-labelledby="contact-heading" className="surface-dark pt-16 pb-12 lg:pt-20 lg:pb-16">
-        <div className="content-width grid gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="content-width grid gap-8 lg:grid-cols-12 lg:gap-x-6">
           <div className="lg:col-span-6">
             <p className="flex items-center gap-1.5 text-sm font-semibold tracking-[0.14em] uppercase text-sand/90">
               <span aria-hidden="true" className="h-px w-4 bg-accent" />

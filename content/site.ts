@@ -41,7 +41,7 @@ export interface SiteInfo {
 }
 
 export const site: SiteInfo = {
-  name: "Choice Travels",
+  name: "Choice Tours & Travels",
   foundedYear: 2005,
   city: "Thiruvananthapuram",
   state: "Kerala",
@@ -74,7 +74,7 @@ export const site: SiteInfo = {
 
 /** Link that opens a WhatsApp chat with the office, with a friendly first line ready to send */
 export const whatsappHref = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(
-  "Hello Choice Travels, I would like to plan a trip.",
+  `Hello ${site.name}, I would like to plan a trip.`,
 )}`;
 
 /** Google map of the office with a pin, for an <iframe>. No API key needed. */

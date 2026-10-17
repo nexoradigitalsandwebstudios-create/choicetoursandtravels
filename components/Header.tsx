@@ -60,7 +60,9 @@ export default function Header() {
       <div className="content-width relative flex h-8 items-center justify-between gap-2 lg:h-9">
         <Logo onClick={() => setMenuOpen(false)} />
 
-        <nav aria-label="Main" className="hidden lg:block">
+        {/* Full menu only on wide screens (1280px+), where it fits beside the
+            logo on one line; narrower screens use the menu button. */}
+        <nav aria-label="Main" className="hidden xl:block">
           <ul className="flex items-center gap-3">
             {mainNav.map((link) => {
               const isCurrent = pathname === link.href || pathname.startsWith(`${link.href}/`);
@@ -69,7 +71,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     aria-current={isCurrent ? "page" : undefined}
-                    className={`inline-flex min-h-6 items-center border-b-2 text-base font-medium ${
+                    className={`inline-flex min-h-6 items-center border-b-2 text-base font-medium whitespace-nowrap ${
                       isCurrent ? "border-accent" : "border-transparent hover:border-sand/50"
                     }`}
                   >
@@ -87,7 +89,7 @@ export default function Header() {
             className="inline-flex min-h-6 min-w-6 items-center justify-center gap-1 rounded-control bg-accent-fill px-2 font-semibold text-on-accent hover:opacity-90"
           >
             <PhoneIcon className="h-2.5 w-2.5" />
-            <span className="hidden sm:inline">Call us</span>
+            <span className="hidden whitespace-nowrap sm:inline">Call us</span>
             <span className="sr-only sm:hidden">Call us</span>
           </a>
 
@@ -97,7 +99,7 @@ export default function Header() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className="inline-flex min-h-6 min-w-6 items-center justify-center rounded-control lg:hidden"
+            className="inline-flex min-h-6 min-w-6 items-center justify-center rounded-control xl:hidden"
           >
             {menuOpen ? <CloseIcon className="h-3 w-3" /> : <MenuIcon className="h-3 w-3" />}
             <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>

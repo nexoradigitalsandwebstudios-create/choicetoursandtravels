@@ -20,7 +20,7 @@ const icons = {
 export default function Drivers() {
   return (
     <section aria-labelledby="drivers-heading" className="section-pad bg-sand">
-      <div className="content-width grid items-center gap-6 lg:grid-cols-12 lg:gap-8">
+      <div className="content-width grid items-center gap-6 lg:grid-cols-12 lg:gap-x-6">
         <Reveal className="lg:col-span-5">
           <DriverScene />
         </Reveal>

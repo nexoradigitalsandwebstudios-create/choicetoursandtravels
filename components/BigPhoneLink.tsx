@@ -12,7 +12,7 @@ export default function BigPhoneLink() {
       <PhoneIcon className="h-4 w-4 shrink-0 lg:h-5 lg:w-5" />
       <span className="flex flex-col text-left">
         <span className="text-sm font-semibold tracking-[0.14em] uppercase">Call us</span>
-        <span className="font-heading text-xl leading-tight whitespace-nowrap sm:text-2xl lg:text-3xl">{site.phoneDisplay}</span>
+        <span className="font-heading text-xl leading-tight whitespace-nowrap sm:text-2xl xl:text-3xl">{site.phoneDisplay}</span>
       </span>
     </a>
   );

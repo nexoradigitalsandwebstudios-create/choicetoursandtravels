@@ -1,0 +1,23 @@
+// The Choice Tours & Travels emblem: a gold disc with two palms on an island
+// and a road curving away to the horizon. Flat colours only.
+//
+// The brand colours are fixed here (gold and ink), unlike the rest of the
+// site's accents which change with the mode: a logo must look the same
+// everywhere. The same drawing is in public/logo/ and app/icon.svg.
+export default function LogoEmblem({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false" className={className}>
+      <defs>
+        <clipPath id="logo-disc">
+          <circle cx="60" cy="60" r="57" />
+        </clipPath>
+      </defs>
+      <circle cx="60" cy="60" r="57" className="fill-gold" />
+      <path
+        clipPath="url(#logo-disc)"
+        className="fill-ink"
+        d="M0 77.9H120V80.1H0ZM56 79Q81 62 108 79ZM73.58 72Q76.58 51.5 66.55 31L69.45 31Q81.42 51.5 78.42 72ZM68 31Q55.22 24.14 47.3 40.2Q58.5 35.11 68 31ZM68 31Q61.34 16.23 50.75 25.25Q58.69 27.79 68 31ZM68 31Q71.21 16.39 64.55 16.05Q64.55 21.52 68 31ZM68 31Q78.34 25.57 81.8 21.8Q73.69 22.19 68 31ZM68 31Q77.12 34.15 89.85 37.9Q79.56 30.05 68 31ZM68 31Q66.33 34.67 73.75 47.1Q72.47 36.08 68 31ZM89.07 73Q87.07 59.5 98.84 46L101.16 46Q90.93 59.5 92.93 73ZM100 46Q89.78 39.31 83.44 53.36Q92.4 48.81 100 46ZM100 46Q94.67 32.99 86.2 41.4Q92.55 42.95 100 46ZM100 46Q102.56 33.11 97.24 34.04Q97.24 37.94 100 46ZM100 46Q108.28 40.45 111.04 38.64Q104.56 38.47 100 46ZM100 46Q107.3 47.32 117.48 51.52Q109.24 44.76 100 46ZM100 46Q98.66 47.74 104.6 58.88Q103.57 49.59 100 46ZM24 122C6 108 28 92 59 80L65 80C44 92 34 106 64 122Z"
+      />
+    </svg>
+  );
+}

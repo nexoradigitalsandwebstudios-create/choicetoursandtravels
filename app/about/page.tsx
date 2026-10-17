@@ -42,7 +42,7 @@ export default function AboutPage() {
       </section>
 
       <section aria-labelledby="coverage-heading" className="section-pad bg-sand-deep">
-        <div className="content-width grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="content-width grid items-center gap-8 lg:grid-cols-12 lg:gap-x-6">
           <Reveal className="lg:col-span-5">
             <SectionHeading id="coverage-heading" title={aboutPage.coverageHeading} intro={aboutPage.coverageText} />
             <h3 className="mt-6 text-xl">States we cover</h3>
