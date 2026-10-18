@@ -7,8 +7,8 @@ import { images } from "@/content/images";
 import { site } from "@/content/site";
 
 /**
- * Homepage section 1. Sri Padmanabhaswamy Temple at sunrise over the temple
- * tank, with a slow zoom towards the gopuram. One still photo, never a carousel.
+ * Homepage section 1. A temple at sunset, with a slow zoom. One still photo,
+ * never a carousel.
  *
  * The text is placed around the photo so it never covers the temple:
  * - desktop: the photo fills the screen; the gopuram sits left of centre, so
@@ -54,12 +54,15 @@ export default function Hero() {
           edge lines up with the page's content column. */}
       <div className="content-width relative z-10 -mt-10 pb-10 lg:mt-0 lg:flex lg:h-full lg:items-center lg:justify-end lg:pb-0">
         <div className="lg:w-[36rem] lg:max-w-[42%] lg:pt-8">
-          <p className="flex items-center gap-1.5 text-sm font-semibold tracking-[0.18em] uppercase text-sand/90">
-            <span aria-hidden="true" className="h-px w-5 bg-accent" />
-            {hero.lockup}
-          </p>
-          <h1 id="hero-heading" className="mt-2 text-hero">
-            {hero.headline}
+          {/* One h1 holding both lines, so Google reads
+              "Tours and travels in Trivandrum since 2005. Travel South India in comfort". */}
+          <h1 id="hero-heading">
+            <span className="flex items-center gap-1.5 font-sans text-sm font-semibold tracking-[0.18em] uppercase text-sand/90">
+              <span aria-hidden="true" className="h-px w-5 shrink-0 bg-accent" />
+              {hero.lockup}
+              <span className="sr-only">. </span>
+            </span>
+            <span className="mt-2 block text-hero">{hero.headline}</span>
           </h1>
           <p className="mt-2 max-w-xl text-lg text-sand/90">{hero.subhead}</p>
 

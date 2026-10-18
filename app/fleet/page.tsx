@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 import BigPhoneLink from "@/components/BigPhoneLink";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
@@ -7,19 +10,23 @@ import VehicleCard from "@/components/VehicleCard";
 import CheckIcon from "@/components/icons/CheckIcon";
 import { fleetPage, vehicles } from "@/content/fleet";
 import { images } from "@/content/images";
-import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Our vehicles",
-  description:
-    "Cars, vans and buses with experienced drivers, for any group size: Dzire, Innova Crysta, 12 seater vans and 49 seater buses. Available 24 hours.",
+  title: seo.fleet.title,
+  description: seo.fleet.description,
   alternates: { canonical: "/fleet" },
-  openGraph: { title: `Our vehicles | ${site.name}`, url: "/fleet", images: [{ url: images.pageFleet.src, alt: images.pageFleet.alt }] },
+  openGraph: {
+    title: seo.fleet.title,
+    description: seo.fleet.description,
+    url: "/fleet",
+    images: [{ url: images.pageFleet.src, alt: images.pageFleet.alt }],
+  },
 };
 
 export default function FleetPage() {
   return (
     <main id="main">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Our fleet", path: "/fleet" }])} />
       <PageHero eyebrow={fleetPage.eyebrow} heading={fleetPage.heading} intro={fleetPage.intro} image={images.pageFleet} />
 
       <section aria-labelledby="vehicles-heading" className="section-pad bg-sand">

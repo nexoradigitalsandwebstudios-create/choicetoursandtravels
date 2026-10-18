@@ -24,7 +24,9 @@ All copy lives in `/content` as plain TypeScript objects. You never need to touc
 | `content/site.ts` | Phone, WhatsApp, email, address, office hours, domain, trust claims |
 | `content/home.ts` | Every homepage section, in order |
 | `content/pages.ts` | Devotional, tours, about and contact page copy |
-| `content/destinations.ts` | The 8 destinations (rail cards and `/tours/[slug]` pages) |
+| `content/seo.ts` | Page titles and descriptions for Google, search keywords, and the FAQ |
+| `content/trivandrum.ts` | The `/tours-and-travels-trivandrum` page for local searches |
+| `content/destinations.ts` | The 10 destinations (rail cards and `/tours/[slug]` pages) |
 | `content/temples.ts` | Temples on the devotional page |
 | `content/fleet.ts` | The vehicles shown (name, seats, photo) and the fleet page |
 | `content/experiences.ts` | Special experiences on the tours page |
@@ -84,9 +86,23 @@ The homepage, fleet, about and contact pages are neutral and use gold.
 - `background-attachment: fixed` is desktop-only (Kathakali band).
 - Everything respects "reduce motion": no Ken Burns, no reveals, no fixed background.
 
+## Search engines (SEO)
+
+The client's goal is to show up for searches like "best tours and travels in TVM". What the code does:
+
+- Every page has its own title, description and canonical address on `https://www.choicetoursandtravels.com` (`content/seo.ts`). The homepage's main heading starts with "Tours and travels in Trivandrum".
+- `/tours-and-travels-trivandrum` is a page written for local searches. The footer links to it, and to every destination, from every page.
+- Structured data tells Google the business details (`components/TravelAgencyJsonLd.tsx`: travel agency, address, map pin, phones, 24 hours), the FAQ, breadcrumbs and destinations.
+- `/sitemap.xml` and `/robots.txt` are generated automatically (`app/sitemap.ts`, `app/robots.ts`).
+
+To change the domain, set `NEXT_PUBLIC_SITE_URL`. For Google Search Console, set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in Vercel to the code Google gives you (the HTML tag method), redeploy, then submit `sitemap.xml`.
+
+The name, address and phone must read exactly the same here, on the Google Business Profile and in any directory listing.
+
 ## Still to do (needs the client)
 
-- Live domain: `content/site.ts` (`url`), used for the sitemap, social sharing and Google's structured data.
-- Photos of the client's own vehicles, especially the Force Urbania (the card currently shows a Force Traveller).
+- Confirm that airport and railway station pickups are offered (FAQ in `content/seo.ts` and services in `content/trivandrum.ts`).
+- Claim and complete the Google Business Profile, and ask happy customers for Google reviews. For "best tours and travels in TVM", the map results depend mostly on the profile and reviews, not the website.
+- Photo permission for the client-supplied hero and Urbania photos.
 - The founding story for the About page, and typical trip lengths for the destination pages, if wanted.
 - Plain-English check on copy: the site deliberately avoids words like "chauffeur". Keep new copy just as simple.

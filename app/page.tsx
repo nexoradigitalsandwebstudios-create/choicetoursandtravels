@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
 import Drivers from "@/components/Drivers";
 import Enquiry from "@/components/Enquiry";
+import FaqSection from "@/components/FaqSection";
 import TravelAgencyJsonLd from "@/components/TravelAgencyJsonLd";
 import Destinations from "@/components/home/Destinations";
 import FleetPreview from "@/components/home/FleetPreview";
@@ -13,6 +15,10 @@ import TwoDoors from "@/components/home/TwoDoors";
 import { images } from "@/content/images";
 
 export const metadata: Metadata = {
+  // "absolute" skips the "| Choice Tours & Travels" ending: the name is
+  // already at the start of the homepage title.
+  title: { absolute: seo.home.title },
+  description: seo.home.description,
   alternates: { canonical: "/" },
   openGraph: {
     url: "/",
@@ -47,7 +53,13 @@ export default function HomePage() {
       <KathakaliBand />
       {/* 9. sand, photo grid */}
       <Gallery />
-      {/* 10. ink, phone and map */}
+      {/* 10. sand-deep, common questions (also read by Google) */}
+      <FaqSection
+        background="sand-deep"
+        title="Tours and travels in Trivandrum: your questions"
+        intro="Straight answers about our taxis, tours and temple trips from Thiruvananthapuram."
+      />
+      {/* 11. ink, phone and map */}
       <Enquiry />
     </main>
   );

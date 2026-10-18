@@ -36,8 +36,19 @@ export interface SiteInfo {
   mapLongitude: number;
   /** The office's Google Maps link, opened by "Get directions" */
   mapsLink: string;
+  googleMapsUrl: string;
   /** Search text that makes the embedded Google map drop its pin on the office */
   mapsQuery: string;
+}
+
+/**
+ * The live website address, used for Google (canonical links, sitemap,
+ * structured data) and for link previews on WhatsApp and Facebook.
+ * NEXT_PUBLIC_SITE_URL (Vercel: Settings > Environment Variables) overrides
+ * it, e.g. for a test copy of the site.
+ */
+function siteUrl(): string {
+  return (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.choicetoursandtravels.com").replace(/\/$/, "");
 }
 
 export const site: SiteInfo = {
@@ -46,7 +57,7 @@ export const site: SiteInfo = {
   city: "Thiruvananthapuram",
   state: "Kerala",
   description:
-    "Car hire with experienced drivers for temple trips, holidays and group travel across South India. Based in Thiruvananthapuram, Kerala, since 2005.",
+    "Tours and travels in Trivandrum (Thiruvananthapuram) since 2005. Car, van and bus hire with experienced drivers for temple trips, holidays and group travel across South India.",
 
   phoneHref: "tel:+919447471478",
   phoneDisplay: "+91 94474 71478",
@@ -63,12 +74,14 @@ export const site: SiteInfo = {
 
   officeHours: "Open 24 hours, every day",
 
-  // TODO: replace with the live domain once it is registered.
-  url: "https://www.example.com",
+  url: siteUrl(),
 
   mapLatitude: 8.496108,
   mapLongitude: 76.9458487,
   mapsLink: "https://share.google/sQb0HP74ZNmomS3GE",
+  // The office's permanent Google Maps listing (its "CID"), used to tell
+  // Google that this website and that Maps listing are the same business.
+  googleMapsUrl: "https://www.google.com/maps?cid=15699724298380400321",
   mapsQuery: "CHOICE TOURS & TRAVELS, Surya Building, Uppalam Rd, Thiruvananthapuram",
 };
 

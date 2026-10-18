@@ -4,15 +4,17 @@ import { images } from "./images";
 import { site, statesServed, trustClaims, yearsOperating } from "./site";
 
 export const hero = {
-  lockup: `Since ${site.foundedYear}`,
+  // Shown small above the headline, but part of the page's main heading (h1):
+  // this is the phrase people type into Google.
+  lockup: `Tours and travels in Trivandrum since ${site.foundedYear}`,
   // Plain words on purpose: many visitors read English as a second language.
   // The photo already says "temples", so the words cover every kind of trip.
   headline: "Travel South India in comfort",
   subhead:
-    "Cars, vans and buses with experienced, friendly drivers. Book a taxi for a day, or a full tour for a week.",
+    "Cars, vans and buses with experienced, friendly drivers, from Thiruvananthapuram. Book a taxi for a day, or a full tour for a week.",
   primaryCta: { label: "Devotional journeys", href: "/devotional" },
   secondaryCta: { label: "Tour packages", href: "/tours" },
-  highlights: ["Open 24 hours", "Drivers speak English and Hindi", `Based in ${site.city}`],
+  highlights: ["Open 24 hours", "Drivers speak English and Hindi", "Based in Trivandrum (Thiruvananthapuram)"],
 };
 
 export interface Stat {

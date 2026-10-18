@@ -10,7 +10,10 @@ import CheckIcon from "@/components/icons/CheckIcon";
 import PhoneIcon from "@/components/icons/PhoneIcon";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { destinations, getDestination } from "@/content/destinations";
+import { destinationSeo } from "@/content/seo";
 import { site, whatsappHref } from "@/content/site";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 
 // One page per destination, all built at build time from content/destinations.ts.
 export function generateStaticParams() {
@@ -26,13 +29,14 @@ export async function generateMetadata({ params }: PageProps<"/tours/[slug]">): 
   if (!destination) {
     return {};
   }
+  const meta = destinationSeo(destination.name, destination.note);
   return {
-    title: `${destination.name} tours`,
-    description: `${destination.note} Trips to ${destination.name} by car with an experienced driver, from ${site.city}.`,
+    title: meta.title,
+    description: meta.description,
     alternates: { canonical: `/tours/${destination.slug}` },
     openGraph: {
-      title: `${destination.name} | ${site.name}`,
-      description: destination.note,
+      title: `${meta.title} | ${site.name}`,
+      description: meta.description,
       url: `/tours/${destination.slug}`,
       images: [{ url: destination.image.src, alt: destination.image.alt }],
     },
@@ -52,6 +56,23 @@ export default async function DestinationPage({ params }: PageProps<"/tours/[slu
 
   return (
     <main id="main">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Tour packages", path: "/tours" },
+          { name: destination.name, path: `/tours/${destination.slug}` },
+        ])}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "TouristDestination",
+          name: destination.name,
+          description: destination.intro,
+          image: new URL(destination.image.src, site.url).toString(),
+          url: `${site.url}/tours/${destination.slug}`,
+          touristType: destination.category,
+        }}
+      />
       <PageHero
         eyebrow={destination.category}
         heading={destination.name}
@@ -82,6 +103,10 @@ export default async function DestinationPage({ params }: PageProps<"/tours/[slu
                 Plan this trip
               </h3>
               <p className="mt-1.5">{destination.pairsWith}</p>
+              <p className="mt-1.5">
+                We drive to {destination.name} from Trivandrum (Thiruvananthapuram), with your own car and an experienced
+                driver.
+              </p>
               {/* TODO: once the client confirms typical trip lengths, add a
                   `tripLength` field in content/destinations.ts and show it here. */}
               <p className="mt-1.5 text-text-muted">

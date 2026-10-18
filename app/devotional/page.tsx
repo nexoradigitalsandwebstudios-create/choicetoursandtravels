@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 import BigPhoneLink from "@/components/BigPhoneLink";
 import ButtonLink from "@/components/ButtonLink";
 import PageHero from "@/components/PageHero";
@@ -12,12 +15,12 @@ import { whatsappHref } from "@/content/site";
 import { temples } from "@/content/temples";
 
 export const metadata: Metadata = {
-  title: devotionalPage.metaTitle,
-  description: devotionalPage.metaDescription,
+  title: seo.devotional.title,
+  description: seo.devotional.description,
   alternates: { canonical: "/devotional" },
   openGraph: {
-    title: devotionalPage.metaTitle,
-    description: devotionalPage.metaDescription,
+    title: seo.devotional.title,
+    description: seo.devotional.description,
     url: "/devotional",
     images: [{ url: devotionalPage.hero.image.src, alt: devotionalPage.hero.image.alt }],
   },
@@ -28,6 +31,7 @@ export const metadata: Metadata = {
 export default function DevotionalPage() {
   return (
     <main id="main">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Devotional journeys", path: "/devotional" }])} />
       <PageHero
         eyebrow={devotionalPage.hero.eyebrow}
         heading={devotionalPage.hero.heading}

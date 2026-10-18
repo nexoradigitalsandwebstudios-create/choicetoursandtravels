@@ -1,13 +1,11 @@
 // Copy for the inner pages: /devotional, /tours, /about and /contact.
-// The fleet page copy lives in fleet.ts.
+// The fleet page copy lives in fleet.ts; page titles and search descriptions
+// live in seo.ts.
 
 import { images } from "./images";
 import { site, statesServed, trustClaims, yearsOperating } from "./site";
 
 export const devotionalPage = {
-  metaTitle: "Devotional journeys and temple tours",
-  metaDescription:
-    "Temple trips across South India by car with an experienced driver, from Thiruvananthapuram: Padmanabhaswamy, Kanyakumari, Suchindram, Rameswaram, Madurai, Guruvayur and more.",
   hero: {
     image: images.pageDevotional,
     eyebrow: "Devotional journeys",
@@ -31,9 +29,6 @@ export const devotionalPage = {
 };
 
 export const toursPage = {
-  metaTitle: "Tour packages: beaches, hills, wildlife and backwaters",
-  metaDescription:
-    "Tours across Kerala and South India by car with an experienced driver: Munnar, Thekkady, Alleppey houseboats, Kovalam, Varkala, Kanyakumari and Jatayu Earth's Center.",
   hero: {
     image: images.pageTours,
     eyebrow: "Tour packages",
@@ -51,8 +46,6 @@ export const toursPage = {
 };
 
 export const aboutPage = {
-  metaTitle: "About us",
-  metaDescription: `${site.name} has driven travellers across South India from ${site.city} since ${site.foundedYear}. Meet our drivers and see where we go.`,
   hero: {
     image: images.pageAbout,
     eyebrow: "About us",
@@ -76,8 +69,6 @@ export const aboutPage = {
 };
 
 export const contactPage = {
-  metaTitle: "Contact us",
-  metaDescription: `Call or WhatsApp ${site.name} in ${site.city}, open 24 hours, for taxis, tours and temple trips across South India.`,
   eyebrow: "Contact",
   heading: "Let's plan your journey",
   intro: "Call or WhatsApp us any time. We are open 24 hours, every day.",

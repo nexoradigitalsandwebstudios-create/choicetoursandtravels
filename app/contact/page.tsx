@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 import BigPhoneLink from "@/components/BigPhoneLink";
 import ContactList from "@/components/ContactList";
 import OfficeMap from "@/components/OfficeMap";
 import { contactPage } from "@/content/pages";
-import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: contactPage.metaTitle,
-  description: contactPage.metaDescription,
+  title: seo.contact.title,
+  description: seo.contact.description,
   alternates: { canonical: "/contact" },
-  openGraph: { title: `${contactPage.metaTitle} | ${site.name}`, url: "/contact" },
+  openGraph: {
+    title: seo.contact.title,
+    description: seo.contact.description,
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {
   return (
     <main id="main">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Contact", path: "/contact" }])} />
       {/* Starts dark like every page, so the transparent header is readable.
           The phone is the main action, so it is the biggest thing here. */}
       <section aria-labelledby="contact-heading" className="surface-dark pt-16 pb-12 lg:pt-20 lg:pb-16">

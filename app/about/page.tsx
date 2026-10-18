@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 import CoverageMap from "@/components/CoverageMap";
 import Drivers from "@/components/Drivers";
 import Enquiry from "@/components/Enquiry";
@@ -9,12 +12,12 @@ import { aboutPage } from "@/content/pages";
 import { statesServed } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: aboutPage.metaTitle,
-  description: aboutPage.metaDescription,
+  title: seo.about.title,
+  description: seo.about.description,
   alternates: { canonical: "/about" },
   openGraph: {
-    title: aboutPage.metaTitle,
-    description: aboutPage.metaDescription,
+    title: seo.about.title,
+    description: seo.about.description,
     url: "/about",
     images: [{ url: aboutPage.hero.image.src, alt: aboutPage.hero.image.alt }],
   },
@@ -23,6 +26,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main id="main">
+      <JsonLd data={breadcrumbJsonLd([{ name: "About us", path: "/about" }])} />
       <PageHero
         eyebrow={aboutPage.hero.eyebrow}
         heading={aboutPage.hero.heading}

@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 import DestinationCard from "@/components/DestinationCard";
 import Enquiry from "@/components/Enquiry";
 import ExperienceCard from "@/components/ExperienceCard";
@@ -10,12 +13,12 @@ import { experiences } from "@/content/experiences";
 import { toursPage } from "@/content/pages";
 
 export const metadata: Metadata = {
-  title: toursPage.metaTitle,
-  description: toursPage.metaDescription,
+  title: seo.tours.title,
+  description: seo.tours.description,
   alternates: { canonical: "/tours" },
   openGraph: {
-    title: toursPage.metaTitle,
-    description: toursPage.metaDescription,
+    title: seo.tours.title,
+    description: seo.tours.description,
     url: "/tours",
     images: [{ url: toursPage.hero.image.src, alt: toursPage.hero.image.alt }],
   },
@@ -25,6 +28,7 @@ export const metadata: Metadata = {
 export default function ToursPage() {
   return (
     <main id="main">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Tour packages", path: "/tours" }])} />
       <PageHero
         eyebrow={toursPage.hero.eyebrow}
         heading={toursPage.hero.heading}
