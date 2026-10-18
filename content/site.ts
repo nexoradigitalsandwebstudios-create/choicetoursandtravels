@@ -48,7 +48,7 @@ export interface SiteInfo {
  * it, e.g. for a test copy of the site.
  */
 function siteUrl(): string {
-  return (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.choicetoursandtravels.com").replace(/\/$/, "");
+  return (process.env.NEXT_PUBLIC_SITE_URL ?? "https://choicetoursandtravels.com").replace(/\/$/, "");
 }
 
 export const site: SiteInfo = {

@@ -90,7 +90,7 @@ The homepage, fleet, about and contact pages are neutral and use gold.
 
 The client's goal is to show up for searches like "best tours and travels in TVM". What the code does:
 
-- Every page has its own title, description and canonical address on `https://www.choicetoursandtravels.com` (`content/seo.ts`). The homepage's main heading starts with "Tours and travels in Trivandrum".
+- Every page has its own title, description and canonical address on `https://choicetoursandtravels.com` (`content/seo.ts`). The homepage's main heading starts with "Tours and travels in Trivandrum".
 - `/tours-and-travels-trivandrum` is a page written for local searches. The footer links to it, and to every destination, from every page.
 - Structured data tells Google the business details (`components/TravelAgencyJsonLd.tsx`: travel agency, address, map pin, phones, 24 hours), the FAQ, breadcrumbs and destinations.
 - `/sitemap.xml` and `/robots.txt` are generated automatically (`app/sitemap.ts`, `app/robots.ts`).
