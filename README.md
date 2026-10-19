@@ -56,7 +56,7 @@ The logo files live in `public/logo/`:
 | `choice-tours-travels-logo-transparent.svg` | Full logo without a background |
 | `choice-tours-travels-emblem.svg` | The round emblem on its own |
 
-On the site, `components/LogoEmblem.tsx` draws the same emblem, `app/icon.svg` is the browser-tab icon and `app/apple-icon.png` is the phone home-screen icon. Brand colours: gold `#C9A227`, forest green `#0B3B2E`, ivory `#F7F3EA`. Flat colour only, no gradients.
+On the site, `components/LogoEmblem.tsx` draws the same emblem, `app/icon.svg` is the browser-tab icon and `app/apple-icon.png` is the iPhone home-screen icon. `app/favicon.ico`, `app/icon1.png` (the icon Google shows beside search results) and `public/icons/` are made from the emblem by `node scripts/generate-icons.mjs`. Brand colours: gold `#C9A227`, forest green `#0B3B2E`, ivory `#F7F3EA`. Flat colour only, no gradients.
 
 ## The two modes
 
