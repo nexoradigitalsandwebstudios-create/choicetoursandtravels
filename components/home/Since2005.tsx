@@ -12,7 +12,7 @@ const ruleClasses = [
 ];
 
 /**
- * Homepage section 2. No photography at all: after the full-screen hero this
+ * Homepage section 3. No photography at all: after the taxi band this
  * section gives the eye somewhere to rest. Four big numerals in Fraunces.
  */
 export default function Since2005() {

@@ -473,6 +473,24 @@
   }
 }
 
+/* "Live" dot on the hero's 24 hour badge: a ring that grows and fades. */
+.live-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: live-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes live-ping {
+  75%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
 @keyframes ken-burns {
   from {
     transform: scale(1);

@@ -11,6 +11,7 @@ import Hero from "@/components/home/Hero";
 import JatayuStory from "@/components/home/JatayuStory";
 import KathakaliBand from "@/components/home/KathakaliBand";
 import Since2005 from "@/components/home/Since2005";
+import TaxiService from "@/components/home/TaxiService";
 import TwoDoors from "@/components/home/TwoDoors";
 import { images } from "@/content/images";
 
@@ -37,29 +38,31 @@ export default function HomePage() {
       <TravelAgencyJsonLd />
       {/* 1. dark, split: photo beside the headline */}
       <Hero />
-      {/* 2. sand, numbers only */}
+      {/* 2. gold, 24 hour taxi service between two car photos */}
+      <TaxiService />
+      {/* 3. sand, numbers only */}
       <Since2005 />
-      {/* 3. dark, two photos */}
+      {/* 4. dark, two photos */}
       <TwoDoors />
-      {/* 4. sand, vehicle photos */}
+      {/* 5. sand, vehicle photos */}
       <FleetPreview />
-      {/* 5. sand-deep, card rail */}
+      {/* 6. sand-deep, card rail */}
       <Destinations />
-      {/* 6. dark, one sticky photo */}
+      {/* 7. dark, one sticky photo */}
       <JatayuStory />
-      {/* 7. sand, animated road scene */}
+      {/* 8. sand, animated road scene */}
       <Drivers />
-      {/* 8. dark, fixed background */}
+      {/* 9. dark, fixed background */}
       <KathakaliBand />
-      {/* 9. sand, photo grid */}
+      {/* 10. sand, photo grid */}
       <Gallery />
-      {/* 10. sand-deep, common questions (also read by Google) */}
+      {/* 11. sand-deep, common questions (also read by Google) */}
       <FaqSection
         background="sand-deep"
         title="Tours and travels in Trivandrum: your questions"
         intro="Straight answers about our taxis, tours and temple trips from Thiruvananthapuram."
       />
-      {/* 11. ink, phone and map */}
+      {/* 12. ink, phone and map */}
       <Enquiry />
     </main>
   );

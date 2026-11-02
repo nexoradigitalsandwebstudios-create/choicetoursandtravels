@@ -48,7 +48,7 @@ export const trivandrumPage = {
       link: { label: "See devotional journeys", href: "/devotional" },
     },
     {
-      title: "Group travel by van and bus",
+      title: "Group travel by traveller and bus",
       text: "A 12 seater Force Urbania or a 49 seater tourist bus for weddings, school and college trips, office outings and large families.",
       link: { label: "Contact us for groups", href: "/contact" },
     },

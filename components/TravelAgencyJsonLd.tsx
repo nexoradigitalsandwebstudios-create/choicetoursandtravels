@@ -54,8 +54,9 @@ export default function TravelAgencyJsonLd() {
         makesOffer: [
           "Taxi service in Trivandrum",
           "Car hire with driver",
-          "Innova Crysta hire",
-          "Force Urbania hire",
+          "Innova Crysta and Innova Hycross hire",
+          "Ertiga and Toyota Rumion hire",
+          "Force Urbania traveller hire",
           "Tourist bus hire",
           "Kerala tour packages",
           "Temple tour packages",

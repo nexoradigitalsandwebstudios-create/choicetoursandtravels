@@ -5,6 +5,7 @@ import DestinationCard from "@/components/DestinationCard";
 import Enquiry from "@/components/Enquiry";
 import FaqSection from "@/components/FaqSection";
 import JsonLd from "@/components/JsonLd";
+import LocalTrips from "@/components/LocalTrips";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
@@ -94,6 +95,9 @@ export default function TrivandrumPage() {
               </li>
             ))}
           </ul>
+        </div>
+        <div className="mt-8 lg:mt-10">
+          <LocalTrips />
         </div>
       </section>
 

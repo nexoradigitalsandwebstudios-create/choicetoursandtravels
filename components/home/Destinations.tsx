@@ -1,13 +1,15 @@
 import DestinationCard from "../DestinationCard";
 import Reveal from "../Reveal";
+import LocalTrips from "../LocalTrips";
 import SectionHeading from "../SectionHeading";
 import DestinationRail from "./DestinationRail";
 import { destinations } from "@/content/destinations";
 import { destinationsIntro } from "@/content/home";
 
 /**
- * Homepage section 5. A horizontal rail of portrait destination cards. Scrolling is
- * the browser's own (with scroll-snap), not a custom drag script.
+ * Homepage section 6. A horizontal rail of portrait destination cards, then
+ * a short list of local trips around Trivandrum. Scrolling is the browser's
+ * own (with scroll-snap), not a custom drag script.
  *
  * The cards are rendered here on the server and handed to DestinationRail,
  * which only adds the arrows and the progress bar.
@@ -33,6 +35,11 @@ export default function Destinations() {
           ))}
         </DestinationRail>
       </Reveal>
+
+      {/* Short trips around the city: Shanghumugham, Ponmudi and more */}
+      <div className="mt-8 lg:mt-10">
+        <LocalTrips />
+      </div>
     </section>
   );
 }

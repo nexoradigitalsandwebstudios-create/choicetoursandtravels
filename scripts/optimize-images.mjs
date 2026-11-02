@@ -40,6 +40,14 @@ const CROPS = {
       region: { left: 0, top: 0.22, width: 1, height: 0.371 },
     },
   ],
+  // The Ertiga is small in the middle of a wide photo: crop in on the car.
+  "vehicles/ertiga.jpg": [
+    {
+      output: "vehicles/ertiga.jpg",
+      region: { left: 0.24, top: 0.18, width: 0.54, height: 0.6 },
+      maxWidth: 1000,
+    },
+  ],
   // The tourist bus is small in a wide hillside photo: crop in on the bus.
   "vehicles/tourist-bus.jpg": [
     {

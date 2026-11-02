@@ -42,9 +42,9 @@ export const seo = {
       "Kerala and South India tour packages from Trivandrum: Munnar, Thekkady, Alleppey, Kovalam, Varkala, Kanyakumari and more, with your own car and driver.",
   },
   fleet: {
-    title: "Car, Van and Bus Hire in Trivandrum",
+    title: "Car, Traveller and Bus Hire in Trivandrum",
     description:
-      "Hire a Dzire, Innova Crysta, Force Urbania or 49 seater tourist bus with an experienced driver in Trivandrum. Any group size. Open 24 hours.",
+      "Hire a Dzire, Ertiga, Rumion, Innova Crysta, Innova Hycross, Urbania traveller or 49 seater bus with a driver in Trivandrum. Open 24 hours.",
   },
   about: {
     title: "About Us: Tours and Travels in Trivandrum",
@@ -74,6 +74,9 @@ export const keywords = [
   "taxi service Trivandrum",
   "taxi in Thiruvananthapuram",
   "Innova for rent Trivandrum",
+  "Innova Hycross for rent Trivandrum",
+  "Ertiga taxi Trivandrum",
+  "traveller for rent Trivandrum",
   "Urbania for rent Trivandrum",
   "tourist bus hire Trivandrum",
   "Kerala tour packages from Trivandrum",
@@ -94,7 +97,7 @@ export const faqs: Faq[] = [
   {
     question: "Do you provide taxi service in Trivandrum?",
     answer:
-      "Yes. We provide cars, vans and buses with experienced drivers for local trips in Trivandrum (Thiruvananthapuram), airport and railway station pickups, sightseeing, and outstation trips anywhere in South India.",
+      "Yes. We provide cars, travellers and buses with experienced drivers for local trips in Trivandrum (Thiruvananthapuram), airport and railway station pickups, sightseeing, and outstation trips anywhere in South India.",
   },
   {
     question: "Are you open 24 hours?",
@@ -104,7 +107,7 @@ export const faqs: Faq[] = [
   {
     question: "Which vehicles can I hire?",
     answer:
-      "We run everything from small cars to big buses: Maruti Dzire (up to 4 passengers), Innova Crysta (up to 7), Force Urbania (12 seater) and a 49 seater tourist bus. Larger groups can be arranged on request.",
+      "We run everything from small cars to big buses: Maruti Dzire (up to 4 passengers), Maruti Ertiga and Toyota Rumion (up to 6), Innova Crysta and Innova Hycross (up to 7), Force Urbania traveller (12 seater) and a 49 seater tourist bus. Larger groups can be arranged on request.",
   },
   {
     question: "Do your drivers speak English and Hindi?",
@@ -119,7 +122,7 @@ export const faqs: Faq[] = [
   {
     question: "Which places can we visit near Trivandrum?",
     answer:
-      "Popular trips from Trivandrum include Kovalam, Varkala, Kappil, Neyyar Dam, Thirparappu Waterfalls, Jatayu Earth's Center and Kanyakumari. Longer tours go to Munnar, Thekkady and the Alleppey backwaters.",
+      "Short local trips include Shanghumugham Beach, Ponmudi, Veli, the Napier Museum and Poovar. Day trips from Trivandrum go to Kovalam, Varkala, Kappil, Neyyar Dam, Thirparappu Waterfalls, Jatayu Earth's Center and Kanyakumari. Longer tours go to Munnar, Thekkady and the Alleppey backwaters.",
   },
   {
     question: "How much does a trip cost?",

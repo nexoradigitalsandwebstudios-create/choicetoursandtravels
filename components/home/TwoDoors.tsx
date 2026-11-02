@@ -3,7 +3,7 @@ import { doors } from "@/content/home";
 import { images } from "@/content/images";
 
 /**
- * Homepage section 3, the most important on the page: one door for
+ * Homepage section 4, the most important on the page: one door for
  * pilgrims, one for holidaymakers.
  *
  * On desktop, hovering a panel widens it from 50% to 62% and dims the other.

@@ -7,7 +7,7 @@ import { kathakali } from "@/content/home";
 import { images } from "@/content/images";
 
 /**
- * Homepage section 8. A short line about traditional experiences over a
+ * Homepage section 9. A short line about traditional experiences over a
  * Kathakali performer, with a heavy ink scrim.
  *
  * On desktop the photo is a fixed-attachment CSS background, so the text

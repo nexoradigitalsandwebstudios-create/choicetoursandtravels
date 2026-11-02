@@ -77,6 +77,52 @@ export const images = {
       changes: "Resized, compressed and colour-graded",
     },
   },
+  vehicleHycross: {
+    src: "/images/vehicles/innova-hycross.jpg",
+    // The photo shows the Toyota Innova Zenix, the overseas name for the
+    // same car sold in India as the Innova Hycross.
+    alt: "A white Toyota Innova Hycross",
+    width: 1000,
+    height: 750,
+    credit: {
+      author: "Ethan Llamas",
+      source: "Wikimedia Commons",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:2024_Toyota_Zenix_2.0_Q_HEV_in_Platinum_Pearl_White_Mica,_07-13-2024.jpg",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+      changes: "Resized, compressed and colour-graded",
+    },
+  },
+  vehicleErtiga: {
+    src: "/images/vehicles/ertiga.jpg",
+    alt: "A white Maruti Suzuki Ertiga",
+    width: 1000,
+    height: 785,
+    credit: {
+      author: "Akashpbrahmavar",
+      source: "Wikimedia Commons",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Maruti_Suzuki_Ertiga(3).jpg",
+      license: "CC0",
+      licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0",
+      changes: "Cropped, resized, compressed and colour-graded",
+    },
+  },
+  vehicleRumion: {
+    src: "/images/vehicles/toyota-rumion.jpg",
+    alt: "A maroon Toyota Rumion",
+    width: 1000,
+    height: 601,
+    // Keeps the front of the car, with its badge, in the 4:3 card.
+    focus: "85% 50%",
+    credit: {
+      author: "عالم السيارات",
+      source: "Wikimedia Commons",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:2022_Toyota_Rumion_Active_(Egypt)_front_view_04.png",
+      license: "CC BY 3.0",
+      licenseUrl: "https://creativecommons.org/licenses/by/3.0",
+      changes: "Resized, compressed to JPEG and colour-graded",
+    },
+  },
   vehicleUrbania: {
     src: "/images/vehicles/urbania.jpg",
     alt: "A dark grey Force Urbania van on a hill road",
@@ -111,17 +157,21 @@ export const images = {
     },
   },
   destThirparappu: {
-    src: "/images/destinations/thirparappu.jpg",
-    alt: "The wide cascade of Thirparappu waterfalls on the Kodayar river, Kanyakumari district",
-    width: 1920,
-    height: 1080,
+    src: "/images/destinations/thirparappu-falls.jpg",
+    alt: "Thirparappu waterfalls on the Kodayar river, with visitors and gardens in front, Kanyakumari district",
+    width: 1344,
+    height: 1008,
+    // Keeps the falls in view when the cards crop the photo to portrait.
+    focus: "62% 35%",
+    // Supplied by the client. TODO: confirm where it came from and that it may be used.
+    // Upscaled from a 1080px original.
     credit: {
-      author: "Naagesh2509",
-      source: "Wikimedia Commons",
-      sourceUrl: "https://commons.wikimedia.org/wiki/File:Thirparappu_Waterfalls_02.jpg",
-      license: "CC BY-SA 4.0",
-      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
-      changes: "Resized, compressed and colour-graded",
+      author: "Choice Tours & Travels",
+      source: "Supplied by Choice Tours & Travels",
+      sourceUrl: "",
+      license: "Used with permission",
+      licenseUrl: "",
+      changes: "Upscaled, sharpened and compressed",
     },
   },
   destNeyyar: {
@@ -139,17 +189,20 @@ export const images = {
     },
   },
   templeAzhimala: {
-    src: "/images/temples/azhimala.jpg",
-    alt: "The giant Shiva sculpture beside the Azhimala Shiva Temple near Vizhinjam",
-    width: 1083,
+    src: "/images/temples/azhimala-shiva.jpg",
+    alt: "The giant Gangadhareshwara Shiva sculpture at Azhimala, above the rocks and the sea near Vizhinjam",
+    width: 1280,
     height: 1600,
+    focus: "50% 38%",
+    // Supplied by the client. TODO: confirm where it came from and that it may be used.
+    // Upscaled 2.5x from a 512px original.
     credit: {
-      author: "JVN5871",
-      source: "Wikimedia Commons",
-      sourceUrl: "https://commons.wikimedia.org/wiki/File:Aazhimala_Shiva_sculpture.jpg",
-      license: "CC BY-SA 4.0",
-      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
-      changes: "Resized, compressed and colour-graded",
+      author: "Choice Tours & Travels",
+      source: "Supplied by Choice Tours & Travels",
+      sourceUrl: "",
+      license: "Used with permission",
+      licenseUrl: "",
+      changes: "Upscaled, sharpened and compressed",
     },
   },
   doorDevotional: {
@@ -265,17 +318,22 @@ export const images = {
     },
   },
   destVarkala: {
-    src: "/images/destinations/varkala.jpg",
-    alt: "The red cliffs and beach at Varkala, seen from the clifftop",
-    width: 1067,
+    src: "/images/destinations/varkala-coast.jpg",
+    alt: "The Varkala coastline from the clifftop: surf, a long beach, palm trees and cliffside cafes",
+    width: 1200,
     height: 1600,
+    // Keeps the beach and palms in view (not just sky) on the wide
+    // destination-page banner.
+    focus: "50% 68%",
+    // Supplied by the client. TODO: confirm where it came from and that it may be used.
+    // Upscaled from a 736px original.
     credit: {
-      author: "Ganesh Mohan T",
-      source: "Wikimedia Commons",
-      sourceUrl: "https://commons.wikimedia.org/wiki/File:Varkala_cliff_view_02.jpg",
-      license: "CC BY-SA 4.0",
-      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
-      changes: "Resized, compressed and colour-graded",
+      author: "Choice Tours & Travels",
+      source: "Supplied by Choice Tours & Travels",
+      sourceUrl: "",
+      license: "Used with permission",
+      licenseUrl: "",
+      changes: "Upscaled, sharpened and compressed",
     },
   },
   destKappil: {
@@ -447,17 +505,21 @@ export const images = {
     },
   },
   galleryKathakali: {
-    src: "/images/gallery/kathakali-closeup.jpg",
-    alt: "A Kathakali performer in green pacha make-up and a tall crown",
-    width: 1536,
-    height: 1024,
+    src: "/images/gallery/kathakali-pacha.jpg",
+    alt: "A Kathakali performer in green pacha make-up and a tall golden crown",
+    width: 1068,
+    height: 1600,
+    // Keeps the face and crown band in view in the big, nearly square gallery tile.
+    focus: "50% 72%",
+    // Supplied by the client. TODO: confirm where it came from and that it may be used.
+    // Upscaled 2x from a 736px original.
     credit: {
-      author: "abhisheka kumar",
-      source: "Wikimedia Commons",
-      sourceUrl: "https://commons.wikimedia.org/wiki/File:Kathakali_performer.jpg",
-      license: "CC BY-SA 4.0",
-      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
-      changes: "Resized, compressed and colour-graded",
+      author: "Choice Tours & Travels",
+      source: "Supplied by Choice Tours & Travels",
+      sourceUrl: "",
+      license: "Used with permission",
+      licenseUrl: "",
+      changes: "Upscaled, sharpened and compressed",
     },
   },
   galleryElephants: {

@@ -7,9 +7,10 @@ interface ButtonLinkProps {
   /**
    * primary:       filled with the accent colour, for the main action
    * outline-light: sand outline, for use on dark backgrounds and photos
-   * outline-dark:  ink outline, for use on sand backgrounds
+   * outline-dark:  ink outline, for use on sand and gold backgrounds
+   * ink:           filled with ink, for the main action on a gold background
    */
-  variant?: "primary" | "outline-light" | "outline-dark";
+  variant?: "primary" | "outline-light" | "outline-dark" | "ink";
   className?: string;
 }
 
@@ -17,6 +18,7 @@ const variantClasses = {
   primary: "bg-accent-fill text-on-accent hover:opacity-90",
   "outline-light": "border border-sand/70 text-sand hover:bg-ink-deep",
   "outline-dark": "border border-ink text-ink hover:bg-sand-deep",
+  ink: "bg-ink text-sand hover:bg-ink-deep",
 };
 
 /**

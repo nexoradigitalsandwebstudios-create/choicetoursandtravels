@@ -12,10 +12,14 @@ export interface Vehicle {
   image: SiteImage;
 }
 
+// Smallest to biggest.
 export const vehicles: Vehicle[] = [
   { name: "Maruti Dzire", seats: "Up to 4 passengers", image: images.vehicleDzire },
+  { name: "Maruti Ertiga", seats: "Up to 6 passengers", image: images.vehicleErtiga },
+  { name: "Toyota Rumion", seats: "Up to 6 passengers", image: images.vehicleRumion },
   { name: "Innova Crysta", seats: "Up to 7 passengers", image: images.vehicleInnova },
-  { name: "Force Urbania", seats: "12 seater van", image: images.vehicleUrbania },
+  { name: "Innova Hycross", seats: "Up to 7 passengers", image: images.vehicleHycross },
+  { name: "Force Urbania", seats: "12 seater traveller", image: images.vehicleUrbania },
   { name: "Tourist bus", seats: "49 seater coach", image: images.vehicleBus },
 ];
 

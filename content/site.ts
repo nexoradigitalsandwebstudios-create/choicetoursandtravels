@@ -57,7 +57,7 @@ export const site: SiteInfo = {
   city: "Thiruvananthapuram",
   state: "Kerala",
   description:
-    "Tours and travels in Trivandrum (Thiruvananthapuram) since 2005. Car, van and bus hire with experienced drivers for temple trips, holidays and group travel across South India.",
+    "Tours and travels in Trivandrum (Thiruvananthapuram) since 2005. Car, traveller and bus hire with experienced drivers for temple trips, holidays and group travel across South India.",
 
   phoneHref: "tel:+919447471478",
   phoneDisplay: "+91 94474 71478",
@@ -85,10 +85,13 @@ export const site: SiteInfo = {
   mapsQuery: "CHOICE TOURS & TRAVELS, Surya Building, Uppalam Rd, Thiruvananthapuram",
 };
 
-/** Link that opens a WhatsApp chat with the office, with a friendly first line ready to send */
-export const whatsappHref = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(
-  `Hello ${site.name}, I would like to plan a trip.`,
-)}`;
+/** Link that opens a WhatsApp chat with the office, with `message` ready to send */
+export function whatsappLink(message: string): string {
+  return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+/** WhatsApp chat with a friendly first line ready to send */
+export const whatsappHref = whatsappLink(`Hello ${site.name}, I would like to plan a trip.`);
 
 /** Google map of the office with a pin, for an <iframe>. No API key needed. */
 export const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(site.mapsQuery)}&z=16&output=embed`;

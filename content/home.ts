@@ -11,10 +11,21 @@ export const hero = {
   // The photo already says "temples", so the words cover every kind of trip.
   headline: "Travel South India in comfort",
   subhead:
-    "Cars, vans and buses with experienced, friendly drivers, from Thiruvananthapuram. Book a taxi for a day, or a full tour for a week.",
+    "Cars, travellers and buses with experienced, friendly drivers, from Thiruvananthapuram. Book a taxi for a day, or a full tour for a week.",
   primaryCta: { label: "Devotional journeys", href: "/devotional" },
   secondaryCta: { label: "Tour packages", href: "/tours" },
-  highlights: ["Open 24 hours", "Drivers speak English and Hindi", "Based in Trivandrum (Thiruvananthapuram)"],
+  highlights: ["Cars, travellers and buses", "Drivers speak English and Hindi", "Based in Trivandrum (Thiruvananthapuram)"],
+};
+
+// Section 2: the 24 hour taxi service, between an Innova and a Dzire.
+export const taxiService = {
+  status: "Open now, 24 hours",
+  heading: "24 hour taxi service",
+  text: "Day or night, every day of the year. Call or WhatsApp for a car with an experienced driver, anywhere in Trivandrum.",
+  callLabel: "Call for a taxi",
+  whatsappLabel: "WhatsApp us",
+  leftImage: images.vehicleInnova,
+  rightImage: images.vehicleDzire,
 };
 
 export interface Stat {

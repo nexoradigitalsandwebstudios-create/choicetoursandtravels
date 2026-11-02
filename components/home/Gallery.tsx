@@ -14,7 +14,7 @@ const tileSizes = {
 };
 
 /**
- * Homepage section 9. An editorial grid of 12 photos with mixed sizes, built
+ * Homepage section 10. An editorial grid of 12 photos with mixed sizes, built
  * with plain CSS grid (no masonry library). Clicking a photo opens it larger.
  *
  * The thumbnails are rendered here on the server, then handed to GalleryGrid,

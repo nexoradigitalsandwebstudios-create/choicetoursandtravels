@@ -2,9 +2,10 @@ import ButtonLink from "../ButtonLink";
 import Photo from "../Photo";
 import CheckIcon from "../icons/CheckIcon";
 import PhoneIcon from "../icons/PhoneIcon";
+import WhatsAppIcon from "../icons/WhatsAppIcon";
 import { hero } from "@/content/home";
 import { images } from "@/content/images";
-import { site } from "@/content/site";
+import { site, whatsappHref } from "@/content/site";
 
 /**
  * Homepage section 1. A temple at sunset, with a slow zoom. One still photo,
@@ -18,9 +19,12 @@ import { site } from "@/content/site";
  */
 export default function Hero() {
   return (
-    <section aria-labelledby="hero-heading" className="surface-dark relative overflow-hidden lg:h-svh lg:min-h-[40rem]">
-      {/* Photo: a block on phones, the full background on desktop */}
-      <div className="relative h-[58svh] min-h-[20rem] lg:absolute lg:inset-0 lg:h-full">
+    <section aria-labelledby="hero-heading" className="surface-dark relative overflow-hidden">
+      {/* Photo: a block on phones, the full background on desktop.
+          Phones use a fixed shape (4:5, or 16:10 when held sideways) rather
+          than a share of the screen height, so the photo is framed the same
+          way on every phone, tall or short. */}
+      <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:absolute lg:inset-0 lg:aspect-auto lg:h-full">
         {/* The largest thing on screen, so it loads first (highPriority).
             It is the only homepage photo that does. */}
         <Photo
@@ -52,8 +56,10 @@ export default function Hero() {
 
       {/* Text: below the photo on phones, on the right on desktop. Its right
           edge lines up with the page's content column. */}
-      <div className="content-width relative z-10 -mt-10 pb-10 lg:mt-0 lg:flex lg:h-full lg:items-center lg:justify-end lg:pb-0">
-        <div className="lg:w-[36rem] lg:max-w-[42%] lg:pt-8">
+      {/* On desktop the section is at least one screen tall and grows if the
+          text needs more room (short laptop screens), so nothing is cut off. */}
+      <div className="content-width relative z-10 -mt-10 pb-10 lg:mt-0 lg:flex lg:min-h-svh lg:items-center lg:justify-end lg:pt-13 lg:pb-6">
+        <div className="lg:w-[36rem] lg:max-w-[42%]">
           {/* One h1 holding both lines, so Google reads
               "Tours and travels in Trivandrum since 2005. Travel South India in comfort". */}
           <h1 id="hero-heading">
@@ -73,15 +79,18 @@ export default function Hero() {
             </ButtonLink>
           </div>
 
-          <a
-            href={site.phoneHref}
-            className="mt-3 inline-flex min-h-6 items-center gap-1.5 text-lg font-semibold"
-          >
-            <PhoneIcon className="h-3 w-3 text-accent" />
-            <span>
-              Call now <span className="underline decoration-accent decoration-2 underline-offset-[6px]">{site.phoneDisplay}</span>
-            </span>
-          </a>
+          <div className="mt-3 flex flex-col items-start gap-1.5">
+            <a href={site.phoneHref} className="inline-flex min-h-6 items-center gap-1.5 text-lg font-semibold">
+              <PhoneIcon className="h-3 w-3 text-accent" />
+              <span>
+                Call now <span className="underline decoration-accent decoration-2 underline-offset-[6px]">{site.phoneDisplay}</span>
+              </span>
+            </a>
+            <ButtonLink href={whatsappHref} variant="outline-light">
+              <WhatsAppIcon className="h-3 w-3" />
+              WhatsApp us
+            </ButtonLink>
+          </div>
 
           <ul className="mt-5 flex flex-wrap gap-x-3 gap-y-1 border-t border-sand/20 pt-3 text-sm text-sand/90">
             {hero.highlights.map((item) => (

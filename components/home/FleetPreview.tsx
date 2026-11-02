@@ -1,15 +1,14 @@
 import Link from "next/link";
 import Reveal from "../Reveal";
 import SectionHeading from "../SectionHeading";
-import VehicleCard from "../VehicleCard";
+import VehicleGrid from "../VehicleGrid";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
 import PhoneIcon from "../icons/PhoneIcon";
-import { vehicles } from "@/content/fleet";
 import { fleetPreview } from "@/content/home";
 import { site } from "@/content/site";
 
 /**
- * Homepage section 4. Short and simple: any group size is fine, small cars
+ * Homepage section 5. Short and simple: any group size is fine, small cars
  * to big buses, with a few example vehicles. No prices, no spec sheets.
  */
 export default function FleetPreview() {
@@ -42,13 +41,7 @@ export default function FleetPreview() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <ul className="mt-6 grid grid-cols-2 gap-1.5 sm:gap-3 lg:mt-10 lg:grid-cols-4">
-            {vehicles.map((vehicle) => (
-              <li key={vehicle.name}>
-                <VehicleCard vehicle={vehicle} />
-              </li>
-            ))}
-          </ul>
+          <VehicleGrid className="mt-6 lg:mt-10" />
         </Reveal>
       </div>
     </section>

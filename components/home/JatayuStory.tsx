@@ -5,7 +5,7 @@ import SectionHeading from "../SectionHeading";
 import { jatayu } from "@/content/home";
 
 /**
- * Homepage section 6. The client's main attraction gets its own section.
+ * Homepage section 7. The client's main attraction gets its own section.
  *
  * Desktop: the photo on the left stays pinned while the text on the right
  * scrolls past it, then lets go when the section ends. This is plain CSS

@@ -54,7 +54,7 @@ export default function DevotionalPage() {
           {/* A plain grid that wraps: never a horizontal scroller here. */}
           <ul className="mt-6 grid gap-3 md:grid-cols-2 lg:mt-8 lg:gap-4">
             {temples.map((temple) => (
-              <li key={temple.name}>
+              <li key={temple.name} className="min-w-0">
                 <Reveal className="h-full">
                   <TempleCard temple={temple} />
                 </Reveal>

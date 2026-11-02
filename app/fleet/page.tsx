@@ -6,9 +6,9 @@ import BigPhoneLink from "@/components/BigPhoneLink";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import VehicleCard from "@/components/VehicleCard";
+import VehicleGrid from "@/components/VehicleGrid";
 import CheckIcon from "@/components/icons/CheckIcon";
-import { fleetPage, vehicles } from "@/content/fleet";
+import { fleetPage } from "@/content/fleet";
 import { images } from "@/content/images";
 
 export const metadata: Metadata = {
@@ -34,15 +34,9 @@ export default function FleetPage() {
           <Reveal>
             <SectionHeading id="vehicles-heading" title={fleetPage.vehiclesHeading} intro={fleetPage.vehiclesText} />
           </Reveal>
-          <ul className="mt-6 grid grid-cols-2 gap-1.5 sm:gap-3 lg:mt-10 lg:grid-cols-4">
-            {vehicles.map((vehicle) => (
-              <li key={vehicle.name}>
-                <Reveal className="h-full">
-                  <VehicleCard vehicle={vehicle} />
-                </Reveal>
-              </li>
-            ))}
-          </ul>
+          <Reveal delay={0.1}>
+            <VehicleGrid className="mt-6 lg:mt-10" />
+          </Reveal>
         </div>
       </section>
 

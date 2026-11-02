@@ -27,6 +27,7 @@ All copy lives in `/content` as plain TypeScript objects. You never need to touc
 | `content/seo.ts` | Page titles and descriptions for Google, search keywords, and the FAQ |
 | `content/trivandrum.ts` | The `/tours-and-travels-trivandrum` page for local searches |
 | `content/destinations.ts` | The 10 destinations (rail cards and `/tours/[slug]` pages) |
+| `content/localTrips.ts` | Short local trips around Trivandrum (Shanghumugham, Ponmudi and more) |
 | `content/temples.ts` | Temples on the devotional page |
 | `content/fleet.ts` | The vehicles shown (name, seats, photo) and the fleet page |
 | `content/experiences.ts` | Special experiences on the tours page |
